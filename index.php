@@ -11,8 +11,6 @@
 // Database structure signed off by trainer before continuing
 // Information from database must be visually displayed with the stats of each item
 
-
-
 //set up pdo
 //want to pull all stats, name, artist, tracks, length
 //
