@@ -13,6 +13,21 @@ class Functions extends TestCase {
         $this->assertEquals($expected, $case);
     }
     
+    public function testFailureDisplayAlbums()
+    {
+        $expected = 'missing data';
+        $testInput1 = [[]];
+        $case = displayAlbums($testInput1);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testMalformedDisplayAlbums()
+    {
+        $testInput1 = 'string';
+        $this->expectException(TypeError::class);
+        $case = displayAlbums($testInput1);
+
+    }
 }
 
 ?>
