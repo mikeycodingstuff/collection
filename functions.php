@@ -33,8 +33,8 @@ function displayAlbums(array $albums):string {
         if ($album === []) {
             return 'missing data';
         } else {
-            $output .= '<div><p><h2>Album Title: </h2>' . $album['name'] . '</p><p><h3>Artist: </h3>' . $album['artist'] .
-            '</p><p><h3>Number of Tracks: </h3>' . $album['tracks'] . '</p><p><h3>Album Length: </h3>' . $album['length'] . '</p></div>';
+            $output .= '<div class="album-container"><h2>Album Title:</h2><h3>' . $album['name'] . '</h3><div><div><h4>Artist:</h4><p>' . $album['artist'] .
+            '</p></div><div><h4>Number of Tracks:</h4><p>' . $album['tracks'] . '</p></div><div><h4>Album Length:</h4><p>' . $album['length'] . '</p></div></div></div>';
         }
     } return $output;
 }

@@ -19,11 +19,30 @@ header {
 
 h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 4rem;
     border-radius: 5px;
     margin: 0;
     background-color: rgba(230, 230, 230, 0.9);
     padding: 1%;
+}
+
+h3, h4 {
+    margin: 2%;
+}
+
+h2 {
+    font-size: 2rem;
+    text-decoration: underline;
+    margin: 4% 2%;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 7%;
+}
+
+h4 {
+    font-size: 1.5rem;
 }
 
 main {
@@ -31,7 +50,17 @@ main {
     flex-wrap: wrap;
 }
 
-main div {
+.album-container {
     padding: 0.5%;
     width: 25%;
+    background-color: #bd9ae5;
+    border: 2px solid black;
+}
+
+main div p {
+    margin: 2% 2%;
+}
+
+main div div div {
+    display: flex;
 }
