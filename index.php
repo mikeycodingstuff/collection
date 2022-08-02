@@ -5,7 +5,7 @@ require_once 'functions.php';
 $db = getDB();
 $albums = fetchAlbums($db);
 
-if (isset($_POST['name']) && isset($_POST['artist']) && isset($_POST['tracks']) && isset($_POST['length'])){
+if (checkFormIsset($_POST)){
     $album = sanitiseAndCreateArray($_POST['name'], $_POST['artist'], $_POST['tracks'], $_POST['length']);
 }
 

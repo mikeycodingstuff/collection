@@ -40,6 +40,20 @@ function displayAlbums(array $albums):string {
 }
 
 /**
+ * Checks if inputs for the form are all set
+ *
+ * @param array $postData $_POST data array
+ * @return boolean true if all inputs have been entered
+ */
+function checkFormIsset(array $postData): bool {
+    if (isset($postData['name']) && isset($postData['artist']) && isset($postData['tracks']) && isset($postData['length'])){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
  * Sanitises inputs and creates an array from the post data
  *
  * @param string $postName the post data for name
@@ -69,7 +83,7 @@ function sanitiseAndCreateArray(string $postName, string $postArtist, int $postT
  */
 function validateInputs(array $album): bool {
     if ((strlen($album['name']) <= 1000) && (strlen($album['artist']) <= 1000) && ($album['tracks'] <= 100) && (strlen($album['length']) <= 15)){
-        $pattern = '/[0-9]+:[0-6][0-9]/';
+        $pattern = '/[0-9]+:[0-5][0-9]/';
         if (preg_match($pattern, $album['length'])) {
             return true;
         }
