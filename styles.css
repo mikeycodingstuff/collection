@@ -5,12 +5,12 @@
 body {
 	margin: 0;
     font-family: 'Kaisei Opti', serif;
-    background-color: #9ae5bc;
+    background-color: #AEDCAE;
 }
 
 header {
     background-image: url(header.jpg);
-    background-color: #bd9ae5;
+    background-color: #DDF2D1;
     background-position: center;
     display: flex;
     justify-content: center;
@@ -49,13 +49,17 @@ h4 {
 main {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .album-container {
     padding: 0.5%;
-    width: 25%;
-    background-color: #bd9ae5;
-    border: 2px solid black;
+    width: 30%;
+    background-color: #DDF2D1;
+}
+
+main div {
+    margin: 1%;
 }
 
 main div p {
