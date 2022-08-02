@@ -21,6 +21,32 @@ $albums = fetchAlbums($db);
         <header>
                 <h1>Album Collection</h1>
         </header>
+        <section>
+            <form action="index.php" method="POST">
+                <div>
+                    <p>Add a New Album</p>
+                </div>
+                <div>
+                    <label for="name">Album name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label for="artist">Artist name:</label>
+                    <input type="text" id="artist" name="artist">
+                </div>
+                <div>
+                    <label for="tracks">Number of Tracks:</label>
+                    <input type="text" id="tracks" name="tracks">
+                </div>
+                <div>
+                    <label for="length">Album Length:</label>
+                    <input type="text" id="length" name="length">
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
         <main>
             <?=displayAlbums($albums);?>
         </main>
