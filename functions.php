@@ -61,9 +61,17 @@ function sanitiseAndCreateArray(string $postName, string $postArtist, int $postT
     return $album;
 }
 
-function validateInputs(string $name, string $artist, int $tracks, string $length) {
-    if ((strlen($name) <= 1000) && (strlen($artist) <= 1000) && ($tracks <= 100) && (strlen($length) <= 15)){
-        
+/**
+ * validates the inputs so that they must fit the requirements of the db table
+ *
+ * @param array $album album array created from post data previously
+ * @return boolean true if it is valid
+ */
+function validateInputs(array $album): bool {
+    if ((strlen($album['name']) <= 1000) && (strlen($album['artist']) <= 1000) && ($album['tracks'] <= 100) && (strlen($album['length']) <= 15)){
+        return true;
+    } else {
+        return false;
     }
 }
 

@@ -9,6 +9,12 @@ if (isset($_POST['name']) && isset($_POST['artist']) && isset($_POST['tracks']) 
     $album = sanitiseAndCreateArray($_POST['name'], $_POST['artist'], $_POST['tracks'], $_POST['length']);
 }
 
+if (validateInputs($album)) {
+    echo 'album accepted';
+} else {
+    echo 'inputs rejected';
+}
+
 echo '<pre>';
 var_dump($album);
 echo '</pre>';
