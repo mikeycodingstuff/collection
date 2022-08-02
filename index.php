@@ -10,6 +10,7 @@ if (checkFormIsset($_POST)){
 
     if (validateInputs($album)) {
         echo 'album accepted!';
+        addToDb($album, $db);
     } else {
         echo 'Please use valid inputs';
     }

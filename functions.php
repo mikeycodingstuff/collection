@@ -93,4 +93,13 @@ function validateInputs(array $album): bool {
     }
 }
 
+function addToDb(array $album, object $db) {
+    $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`) VALUES (:name, :artist, :tracks, :length);");
+    $query->bindParam(':name', $album['name']);
+    $query->bindParam(':artist', $album['artist']);
+    $query->bindParam(':tracks', $album['tracks']);
+    $query->bindParam(':length', $album['length']);
+    $query->execute();
+}
+
 ?>
