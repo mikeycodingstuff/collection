@@ -1,0 +1,72 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+    font-family: 'Kaisei Opti', serif;
+    background-color: #AEDCAE;
+}
+
+header {
+    background-image: url(header.jpg);
+    background-color: #DDF2D1;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    border-radius: 5px;
+    margin: 0;
+    background-color: rgba(230, 230, 230, 0.9);
+    padding: 1%;
+}
+
+h3, h4 {
+    margin: 2%;
+}
+
+h2 {
+    font-size: 2rem;
+    text-decoration: underline;
+    margin: 4% 2%;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 7%;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.album-container {
+    padding: 0.5%;
+    width: 30%;
+    background-color: #DDF2D1;
+}
+
+main div {
+    margin: 1%;
+}
+
+main div p {
+    margin: 2% 2%;
+    font-size: 1.5rem;
+}
+
+main div div div {
+    display: flex;
+}
