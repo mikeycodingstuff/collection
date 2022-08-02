@@ -39,4 +39,23 @@ function displayAlbums(array $albums):string {
     } return $output;
 }
 
+function sanitiseAndCreateArray(string $postName, string $postArtist, int $postTracks, string $postLength ) {
+    $album = ['name' => '', 'artist' => '', 'tracks' => '', 'length' => ''];
+    $name = filter_var($postName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $artist = filter_var($postArtist, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $tracks = filter_var($postTracks, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $length = filter_var($postLength, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $album['name'] = $name;
+    $album['artist'] = $artist;
+    $album['tracks'] = $tracks;
+    $album['length'] = $length;
+    return $album;
+}
+
+function validateInputs(string $name, string $artist, int $tracks, string $length) {
+    if ((strlen($name) <= 1000) && (strlen($artist) <= 1000) && ($tracks <= 100) && (strlen($length) <= 15)){
+        
+    }
+}
+
 ?>

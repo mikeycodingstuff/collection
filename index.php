@@ -5,6 +5,14 @@ require_once 'functions.php';
 $db = getDB();
 $albums = fetchAlbums($db);
 
+if (isset($_POST['name']) && isset($_POST['artist']) && isset($_POST['tracks']) && isset($_POST['length'])){
+    $album = sanitiseAndCreateArray($_POST['name'], $_POST['artist'], $_POST['tracks'], $_POST['length']);
+}
+
+echo '<pre>';
+var_dump($album);
+echo '</pre>';
+
 ?>
 
 <html>
@@ -22,7 +30,7 @@ $albums = fetchAlbums($db);
                 <h1>Album Collection</h1>
         </header>
         <section>
-            <form action="index.php" method="POST">
+            <form action="" method="POST">
                 <div>
                     <p>Add a New Album</p>
                 </div>
