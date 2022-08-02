@@ -7,17 +7,19 @@ $albums = fetchAlbums($db);
 
 if (checkFormIsset($_POST)){
     $album = sanitiseAndCreateArray($_POST['name'], $_POST['artist'], $_POST['tracks'], $_POST['length']);
-}
 
-if (validateInputs($album)) {
-    echo 'album accepted';
+    if (validateInputs($album)) {
+        echo 'album accepted!';
+    } else {
+        echo 'Please use valid inputs';
+    }
+    
+    echo '<pre>';
+    var_dump($album);
+    echo '</pre>';
 } else {
-    echo 'inputs rejected';
+    echo 'Please fill in all sections';
 }
-
-echo '<pre>';
-var_dump($album);
-echo '</pre>';
 
 ?>
 
