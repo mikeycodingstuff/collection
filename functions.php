@@ -46,7 +46,8 @@ function displayAlbums(array $albums):string {
  * @return boolean true if all inputs have been entered
  */
 function checkFormIsset(array $postData): bool {
-    if (isset($postData['name']) && isset($postData['artist']) && isset($postData['tracks']) && isset($postData['length'])){
+    if (isset($postData['name']) && isset($postData['artist']) && isset($postData['tracks']) && isset($postData['length'])
+    && (trim($postData['name']) != '') && (trim($postData['artist']) != '') && (trim($postData['tracks']) != '') && (trim($postData['length']) != '')){
         return true;
     } else {
         return false;
