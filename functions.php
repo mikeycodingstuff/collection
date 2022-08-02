@@ -39,7 +39,16 @@ function displayAlbums(array $albums):string {
     } return $output;
 }
 
-function sanitiseAndCreateArray(string $postName, string $postArtist, int $postTracks, string $postLength ) {
+/**
+ * Sanitises inputs and creates an array from the post data
+ *
+ * @param string $postName the post data for name
+ * @param string $postArtist the post data for artist
+ * @param integer $postTracks the post data for tracks
+ * @param string $postLength the post data for length
+ * @return array an assoc array containing all the data for the album
+ */
+function sanitiseAndCreateArray(string $postName, string $postArtist, int $postTracks, string $postLength ): array {
     $album = ['name' => '', 'artist' => '', 'tracks' => '', 'length' => ''];
     $name = filter_var($postName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $artist = filter_var($postArtist, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
