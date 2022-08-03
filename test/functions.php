@@ -98,8 +98,13 @@ class Functions extends TestCase {
         $case = validateInputs($testInput1);
         $this->assertEquals($expected, $case);
     }
-
-
+    
+    public function testMalformedValidateInputs()
+    {
+        $testInput1 = 'string';
+        $this->expectException(TypeError::class);
+        $case = displayAlbums($testInput1);
+    }
 }
 
 ?>
