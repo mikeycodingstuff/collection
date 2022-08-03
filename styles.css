@@ -18,6 +18,25 @@ header {
     height: 300px;
 }
 
+section {
+    display: flex;
+    justify-content: center;
+}
+
+section div {
+    margin: 5px;
+}
+
+section div p {
+    font-size: 1.5rem;
+    margin: 5% 0%;
+}
+
+section form {
+    margin: 0.5%;
+    background-color: #DDF2D1;
+}
+
 h1 {
     text-align: center;
     font-size: 4rem;
