@@ -39,7 +39,7 @@ $albums = fetchAlbums($db);
                 </div>
                 <div>
                     <label for="length">Album Length:</label>
-                    <input type="text" id="length" name="length">
+                    <input type="text" id="length" name="length" title="mm:ss">
                 </div>
                 <div>
                     <input type="submit" value="Submit">
