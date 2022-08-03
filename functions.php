@@ -35,8 +35,29 @@ function displayAlbums(array $albums):string {
         if ($album === []) {
             return 'missing data';
         } else {
-            $output .= '<div class="album-container"><h3>' . $album['name'] . '</h3><div><div><h4>Artist:</h4><p>' . $album['artist'] .
-            '</p></div><div><h4>Number of Tracks:</h4><p>' . $album['tracks'] . '</p></div><div><h4>Album Length:</h4><p>' . $album['length'] . '</p></div></div></div>';
+            $output .= '<div class="album-container">
+                            <h3>' . $album['name'] . '</h3>
+                            <div>
+                                <div>
+                                    <h4>Artist:</h4>
+                                    <p>' . $album['artist'] . '</p>
+                                </div>
+                            <div>
+                                <h4>Number of Tracks:</h4>
+                                <p>' . $album['tracks'] . '</p>
+                            </div>
+                                <div>
+                                    <h4>Album Length:</h4>
+                                    <p>' . $album['length'] . '</p>
+                                </div>
+                                <div>
+                                    <form action="delete-album.php" method="POST">
+                                        <input type="hidden" name="delete" value="' . $album['id'] . '">
+                                        <button>Delete Album</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>';
         }
     } return $output;
 }
@@ -110,6 +131,19 @@ function addToDb(array $album, PDO $db) {
     $query->bindParam(':artist', $album['artist']);
     $query->bindParam(':tracks', $album['tracks']);
     $query->bindParam(':length', $album['length']);
+    $query->execute();
+}
+
+/**
+ * deletes (sets delete flag) the selected album in the db via its db id
+ *
+ * @param string $albumId the id of the album in the db
+ * @param PDO $db the db
+ * @return void function executes the db query
+ */
+function deleteAlbum(string $albumId, PDO $db) {
+    $query = $db->prepare("UPDATE `albums` SET `deleted` = 1 WHERE `id` = :id");
+    $query->bindParam(':id', $albumId);
     $query->execute();
 }
 
