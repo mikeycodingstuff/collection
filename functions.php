@@ -86,9 +86,11 @@ function sanitiseAndCreateArray(string $postName, string $postArtist, int $postT
  */
 function validateInputs(array $album): bool {
     if ((strlen($album['name']) <= 1000) && (strlen($album['artist']) <= 1000) && ($album['tracks'] <= 100) && (strlen($album['length']) <= 15)){
-        $pattern = '/[0-9]+:[0-5][0-9]/';
+        $pattern = '/^[0-9]+:[0-5]{1}[0-9]{1}$/';
         if (preg_match($pattern, $album['length'])) {
             return true;
+        } else {
+            return false;
         }
     } else {
         return false;

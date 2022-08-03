@@ -74,6 +74,32 @@ class Functions extends TestCase {
         $this->expectException(TypeError::class);
         $case = sanitiseAndCreateArray($testInput1, $testInput2, $testInput3, $testInput4);
     }
+
+    public function testSuccessValidateInputs()
+    {
+        $expected = true;
+        $testInput1 = ['name' => 'MF DOOM', 'artist' => 'Operation: Doomsday', 'tracks' => 19, 'length' => '58:21'];
+        $case = validateInputs($testInput1);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailure1ValidateInputs()
+    {
+        $expected = false;
+        $testInput1 = ['name' => 'MF DOOM', 'artist' => 'Operation: Doomsday', 'tracks' => 1912198371894, 'length' => '58:21'];
+        $case = validateInputs($testInput1);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailure2ValidateInputs()
+    {
+        $expected = false;
+        $testInput1 = ['name' => 'MF DOOM', 'artist' => 'Operation: Doomsday', 'tracks' => 19, 'length' => '15:111'];
+        $case = validateInputs($testInput1);
+        $this->assertEquals($expected, $case);
+    }
+
+
 }
 
 ?>
