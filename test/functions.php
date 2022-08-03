@@ -29,6 +29,30 @@ class Functions extends TestCase {
         $case = displayAlbums($testInput1);
 
     }
+
+    public function testSuccessCheckFormIsset()
+    {
+        $expected = true;
+        $testInput1 = ['name' => 'abc', 'artist' => '123', 'tracks' => 5, 'length' => '40:22'];
+        $case = checkFormIsset($testInput1);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailureCheckFormIsset()
+    {
+        $expected = false;
+        $testInput1 = ['name' => 'abc', 'artist' => '123', 'tracks' => '', 'length' => '40:22'];
+        $case = checkFormIsset($testInput1);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testMalformedCheckFormIsset()
+    {
+        $testInput1 = 'test';
+        $this->expectException(TypeError::class);
+        $case = checkFormIsset($testInput1);
+    }
+    
 }
 
 ?>
