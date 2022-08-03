@@ -4,7 +4,6 @@ require_once 'functions.php';
 
 $db = getDB();
 $albums = fetchAlbums($db);
-
 ?>
 
 <html>
