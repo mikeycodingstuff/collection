@@ -7,9 +7,30 @@ use PHPUnit\Framework\TestCase;
 class Functions extends TestCase {
     public function testSuccessDisplayAlbums()
     {
-        $expected = '<div class="album-container"><h3>' . 'abc' . '</h3><div><div><h4>Artist:</h4><p>' . '123' .
-        '</p></div><div><h4>Number of Tracks:</h4><p>' . 5 . '</p></div><div><h4>Album Length:</h4><p>' . '40:22' . '</p></div></div></div>';
-        $testInput1 = [['name' => 'abc', 'artist' => '123', 'tracks' => 5, 'length' => '40:22']];
+        $expected ='<div class="album-container">
+                            <h3>abc</h3>
+                            <div>
+                                <div>
+                                    <h4>Artist:</h4>
+                                    <p>123</p>
+                                </div>
+                            <div>
+                                <h4>Number of Tracks:</h4>
+                                <p>' . 5 . '</p>
+                            </div>
+                                <div>
+                                    <h4>Album Length:</h4>
+                                    <p>40:22</p>
+                                </div>
+                                <div>
+                                    <form action="delete-album.php" method="POST">
+                                        <input type="hidden" name="delete" value="27">
+                                        <button>Delete Album</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>';
+        $testInput1 = [['name' => 'abc', 'artist' => '123', 'tracks' => 5, 'length' => '40:22', 'id' => '27']];
         $case = displayAlbums($testInput1);
         $this->assertEquals($expected, $case);
     }
