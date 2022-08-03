@@ -5,23 +5,6 @@ require_once 'functions.php';
 $db = getDB();
 $albums = fetchAlbums($db);
 
-if (checkFormIsset($_POST)){
-    $album = sanitiseAndCreateArray($_POST['name'], $_POST['artist'], $_POST['tracks'], $_POST['length']);
-
-    if (validateInputs($album)) {
-        echo 'album accepted!';
-        addToDb($album, $db);
-    } else {
-        echo 'Please use valid inputs';
-    }
-    
-    echo '<pre>';
-    var_dump($album);
-    echo '</pre>';
-} else {
-    echo 'Please fill in all sections';
-}
-
 ?>
 
 <html>
@@ -39,7 +22,7 @@ if (checkFormIsset($_POST)){
                 <h1>Album Collection</h1>
         </header>
         <section>
-            <form action="" method="POST">
+            <form action="create-album.php" method="POST">
                 <div>
                     <p>Add a New Album</p>
                 </div>
