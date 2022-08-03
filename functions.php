@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Gets the db and sets fetch mode to assoc
  *
@@ -9,6 +10,7 @@ function getDB(): PDO {
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $db; 
 }
+
 /**
  * Query to fetch all the albums/data from the db
  *
@@ -93,6 +95,13 @@ function validateInputs(array $album): bool {
     }
 }
 
+/**
+ * adds an album to the database
+ *
+ * @param array $album array of data for the album you want to add
+ * @param object $db database you want to add to
+ * @return void function executes the db query
+ */
 function addToDb(array $album, object $db) {
     $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`) VALUES (:name, :artist, :tracks, :length);");
     $query->bindParam(':name', $album['name']);
