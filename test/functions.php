@@ -106,4 +106,5 @@ class Functions extends TestCase {
         $case = displayAlbums($testInput1);
     }
 }
+
 ?>

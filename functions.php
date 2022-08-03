@@ -104,7 +104,7 @@ function validateInputs(array $album): bool {
  * @param object $db database you want to add to
  * @return void function executes the db query
  */
-function addToDb(array $album, object $db) {
+function addToDb(array $album, PDO $db) {
     $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`) VALUES (:name, :artist, :tracks, :length);");
     $query->bindParam(':name', $album['name']);
     $query->bindParam(':artist', $album['artist']);
