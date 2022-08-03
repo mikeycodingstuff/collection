@@ -18,7 +18,7 @@ function getDB(): PDO {
  * @return array multidimensional array of albums
  */
 function fetchAlbums(PDO $db): array {
-    $query = $db->prepare("SELECT `name`, `artist`, `tracks`, `length` FROM `albums`;");
+    $query = $db->prepare("SELECT `id`, `name`, `artist`, `tracks`, `length` FROM `albums` WHERE `deleted` = 0;");
     $query->execute();
     return $query->fetchAll();
 }
