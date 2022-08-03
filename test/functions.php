@@ -52,7 +52,28 @@ class Functions extends TestCase {
         $this->expectException(TypeError::class);
         $case = checkFormIsset($testInput1);
     }
-    
+
+
+    public function testSuccessSanitiseAndCreateArray()
+    {
+        $expected = ['name' => 'MF DOOM', 'artist' => 'Operation: Doomsday', 'tracks' => 19, 'length' => '58:21'];
+        $testInput1 = 'MF DOOM';
+        $testInput2 = 'Operation: Doomsday';
+        $testInput3 = 19;
+        $testInput4 = '58:21';
+        $case = sanitiseAndCreateArray($testInput1, $testInput2, $testInput3, $testInput4);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testMalformedSanitiseAndCreateArray()
+    {
+        $testInput1 = 'test';
+        $testInput2 = [1];
+        $testInput3 = 19;
+        $testInput4 = '58:21';
+        $this->expectException(TypeError::class);
+        $case = sanitiseAndCreateArray($testInput1, $testInput2, $testInput3, $testInput4);
+    }
 }
 
 ?>
