@@ -135,3 +135,7 @@ section input {
         width: 80%;
     }
 }
+
+.error {
+    color: #eb3a3a;
+}

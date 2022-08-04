@@ -4,6 +4,8 @@ require_once 'functions.php';
 
 $db = getDB();
 $albums = fetchAlbums($db);
+$error = message();
+
 ?>
 
 <html>
@@ -24,6 +26,9 @@ $albums = fetchAlbums($db);
             <form action="create-album.php" method="POST">
                 <div>
                     <p>Add a New Album</p>
+                </div>
+                <div class="error">
+                    <?= $error ?>
                 </div>
                 <div>
                     <label for="name">Album name:</label>

@@ -9,8 +9,7 @@ if (checkFormIsset($_POST)){
     try {
         $album = sanitiseAndCreateArray($_POST['name'], $_POST['artist'], $_POST['tracks'], $_POST['length']);
     } catch (TypeError $error) {
-        // header('Refresh: 3; URL=index.php');
-        echo 'Please use valid inputs';
+        header('Location: index.php?error= Please use valid inputs');
     }
 
     if (isset($album)) {
@@ -23,15 +22,15 @@ if (checkFormIsset($_POST)){
                 echo 'Unexpected error';
             }
         } else {
-            // header('Refresh: 3; URL=index.php');
-            echo 'Please use valid inputs';
+            header('Location: index.php?error= Please use valid inputs');
         }
     }
     
 } else {
-    // header('Refresh: 3; URL=index.php');
-    echo 'Please fill in all sections';
+    header('Location: index.php?error= Please fill in all sections');
 }
+
+
 
 ?>
 
