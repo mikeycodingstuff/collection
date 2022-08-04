@@ -163,8 +163,7 @@ function deleteAlbum(string $albumId, PDO $db)
 function message(): string
 {
     if (isset($_GET['error'])) {
-        $result = $_GET['error'];
-        return $result;
+        return $_GET['error'];
     } else {
         return '';
     }
