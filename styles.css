@@ -78,6 +78,7 @@ main {
     width: 30%;
     background-color: #f7f8fa;
     border-radius: 2px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.22);
 }
 
 main div {
@@ -112,4 +113,10 @@ main form button, .submit-button {
 
 main form button {
     background-color: #e7b5ac;
+}
+
+section input {
+    border: 1px solid #78797b;
+    border-radius: 2px;
+    line-height: 1.4;
 }
