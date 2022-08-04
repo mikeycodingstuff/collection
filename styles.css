@@ -48,8 +48,9 @@ h1 {
     padding: 1%;
 }
 
-h3, h4 {
+h4 {
     margin: 2%;
+    margin-left: 0;
 }
 
 h2 {
@@ -60,6 +61,7 @@ h2 {
 
 h3 {
     font-size: 1.8rem;
+    margin: 2%;
     margin-bottom: 7%;
 }
 
