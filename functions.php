@@ -133,7 +133,7 @@ function validateInputs(array $album): bool
  */
 function addToDb(array $album, PDO $db)
 {
-    $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`) VALUES (:name, :artist, :tracks, :length);");
+    $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`, `deleted`) VALUES (:name, :artist, :tracks, :length, 0);");
     $query->bindParam(':name', $album['name']);
     $query->bindParam(':artist', $album['artist']);
     $query->bindParam(':tracks', $album['tracks']);
