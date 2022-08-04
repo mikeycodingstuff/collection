@@ -154,7 +154,11 @@ function deleteAlbum(string $albumId, PDO $db)
     $query->bindParam(':id', $albumId);
     return $query->execute();
 }
-
+/**
+ * function that takes get info and returns a relevant error message
+ *
+ * @return string returns the result if there is get data, empty string if there is not
+ */
 function message(): string
 {
     if (isset($_GET['error'])) {
