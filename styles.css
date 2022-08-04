@@ -57,8 +57,8 @@ h4 {
 
 h3 {
     font-size: 1.8rem;
-    margin: 2%;
-    margin-bottom: 7%;
+    margin: 10px;
+    margin-bottom: 20px;
 }
 
 main {
@@ -69,15 +69,15 @@ main {
 }
 
 .album-container {
-    padding: 0.5%;
-    width: 30%;
+    padding: 5px;
+    width: 25%;
     background-color: #f7f8fa;
     border-radius: 2px;
     box-shadow: 0 2px 5px rgb(0, 0, 0, 0.22);
 }
 
 main div {
-    margin: 1%;
+    margin: 20px;
 }
 
 main div p {
@@ -117,13 +117,13 @@ section input {
     line-height: 1.4;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
 	.album-container {
         width: 40%;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 	.album-container {
         width: 80%;
     }
