@@ -5,7 +5,8 @@
  *
  * @return PDO the database of albums
  */
-function getDB(): PDO {
+function getDB(): PDO
+{
     $db = new PDO('mysql:host=db; dbname=album-collection', 'root', 'password');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $db; 
@@ -17,7 +18,8 @@ function getDB(): PDO {
  * @param PDO $db the db set with getDB
  * @return array multidimensional array of albums
  */
-function fetchAlbums(PDO $db): array {
+function fetchAlbums(PDO $db): array
+{
     $query = $db->prepare("SELECT `id`, `name`, `artist`, `tracks`, `length` FROM `albums` WHERE `deleted` = 0;");
     $query->execute();
     return $query->fetchAll();
@@ -29,7 +31,8 @@ function fetchAlbums(PDO $db): array {
  * @param array $albums array of album arrays fetched from the db
  * @return string html formatting of data in each album array
  */
-function displayAlbums(array $albums):string {
+function displayAlbums(array $albums):string
+{
     $output = '';
     foreach ($albums as $album){
         if ($album === []) {
@@ -68,7 +71,8 @@ function displayAlbums(array $albums):string {
  * @param array $postData $_POST data array
  * @return boolean true if all inputs have been entered
  */
-function checkFormIsset(array $postData): bool {
+function checkFormIsset(array $postData): bool
+{
     if (isset($postData['name']) && isset($postData['artist']) && isset($postData['tracks']) && isset($postData['length'])
     && (trim($postData['name']) != '') && (trim($postData['artist']) != '') && (trim($postData['tracks']) != '') && (trim($postData['length']) != '')){
         return true;
@@ -86,7 +90,8 @@ function checkFormIsset(array $postData): bool {
  * @param string $postLength the post data for length
  * @return array an assoc array containing all the data for the album
  */
-function sanitiseAndCreateArray(string $postName, string $postArtist, int $postTracks, string $postLength ): array {
+function sanitiseAndCreateArray(string $postName, string $postArtist, int $postTracks, string $postLength ): array
+{
     $album = ['name' => '', 'artist' => '', 'tracks' => '', 'length' => ''];
     $name = filter_var($postName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $artist = filter_var($postArtist, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -105,7 +110,8 @@ function sanitiseAndCreateArray(string $postName, string $postArtist, int $postT
  * @param array $album album array created from post data previously
  * @return boolean true if it is valid
  */
-function validateInputs(array $album): bool {
+function validateInputs(array $album): bool
+{
     if ((strlen($album['name']) <= 1000) && (strlen($album['artist']) <= 1000) && ($album['tracks'] <= 100) && (strlen($album['length']) <= 15)){
         $pattern = '/^[0-9]+:[0-5]{1}[0-9]{1}$/';
         if (preg_match($pattern, $album['length'])) {
@@ -125,13 +131,14 @@ function validateInputs(array $album): bool {
  * @param object $db database you want to add to
  * @return void function executes the db query
  */
-function addToDb(array $album, PDO $db) {
+function addToDb(array $album, PDO $db)
+{
     $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`) VALUES (:name, :artist, :tracks, :length);");
     $query->bindParam(':name', $album['name']);
     $query->bindParam(':artist', $album['artist']);
     $query->bindParam(':tracks', $album['tracks']);
     $query->bindParam(':length', $album['length']);
-    $query->execute();
+    return $query->execute();
 }
 
 /**
@@ -141,10 +148,11 @@ function addToDb(array $album, PDO $db) {
  * @param PDO $db the db
  * @return void function executes the db query
  */
-function deleteAlbum(string $albumId, PDO $db) {
+function deleteAlbum(string $albumId, PDO $db)
+{
     $query = $db->prepare("UPDATE `albums` SET `deleted` = 1 WHERE `id` = :id");
     $query->bindParam(':id', $albumId);
-    $query->execute();
+    return $query->execute();
 }
 
 ?>
