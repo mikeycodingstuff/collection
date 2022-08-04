@@ -47,7 +47,7 @@ $error = message();
                     <input type="text" id="length" name="length" title="mm:ss">
                 </div>
                 <div>
-                    <input class= "submit-button" type="submit" value="Submit">
+                    <input class="submit-button" type="submit" value="Submit">
                 </div>
             </form>
         </section>
