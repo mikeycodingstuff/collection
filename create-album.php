@@ -16,10 +16,9 @@ if (checkFormIsset($_POST)){
         if (validateInputs($album)) {
             $result = addToDb($album, $db);
             if ($result) {
-                // header('Refresh: 3; URL=index.php');
-                echo 'Album successfully added to the collection';
+                header('Location: index.php');
             } else {
-                echo 'Unexpected error';
+                header('Location: index.php?error= Unexpected error');  
             }
         } else {
             header('Location: index.php?error= Please use valid inputs');
