@@ -6,7 +6,6 @@ body {
 	margin: 0;
     font-family: 'Kaisei Opti', serif;
     background: #757F9A;
-    background: linear-gradient(to top, #757F9A, #D7DDE8);
 }
 
 header {
@@ -22,6 +21,7 @@ header {
 section {
     display: flex;
     justify-content: center;
+    background-color: #D7DDE8;
 }
 
 section div {
@@ -42,9 +42,9 @@ section form {
 h1 {
     text-align: center;
     font-size: 4rem;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: 0;
-    background-color: rgba(230, 230, 230, 0.9);
+    background-color: rgba(247, 248, 250, 0.9);
     padding: 1%;
 }
 
@@ -71,12 +71,14 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background: linear-gradient(to top, #757f9a, #D7DDE8);
 }
 
 .album-container {
     padding: 0.5%;
     width: 30%;
     background-color: #f7f8fa;
+    border-radius: 2px;
 }
 
 main div {
