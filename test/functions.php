@@ -74,7 +74,6 @@ class Functions extends TestCase {
         $case = checkFormIsset($testInput1);
     }
 
-
     public function testSuccessSanitiseAndCreateArray()
     {
         $expected = ['name' => 'MF DOOM', 'artist' => 'Operation: Doomsday', 'tracks' => 19, 'length' => '58:21'];
