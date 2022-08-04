@@ -115,6 +115,7 @@ main form button, .submit-button {
 
 main form button {
     background-color: #c88e8e;
+    border-radius: 2px;
 }
 
 section input {
