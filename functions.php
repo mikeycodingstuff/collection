@@ -133,7 +133,7 @@ function validateInputs(array $album): bool
  */
 function addToDb(array $album, PDO $db)
 {
-    $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`) VALUES (:name, :artist, :tracks, :length);");
+    $query = $db->prepare("INSERT INTO `albums` (`name`, `artist`, `tracks`, `length`, `deleted`) VALUES (:name, :artist, :tracks, :length, 0);");
     $query->bindParam(':name', $album['name']);
     $query->bindParam(':artist', $album['artist']);
     $query->bindParam(':tracks', $album['tracks']);
@@ -153,6 +153,20 @@ function deleteAlbum(string $albumId, PDO $db)
     $query = $db->prepare("UPDATE `albums` SET `deleted` = 1 WHERE `id` = :id");
     $query->bindParam(':id', $albumId);
     return $query->execute();
+}
+
+/**
+ * function that takes get info and returns a relevant error message
+ *
+ * @return string returns the result if there is get data, empty string if there is not
+ */
+function message(): string
+{
+    if (isset($_GET['error'])) {
+        return $_GET['error'];
+    } else {
+        return '';
+    }
 }
 
 ?>

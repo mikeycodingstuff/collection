@@ -4,6 +4,8 @@ require_once 'functions.php';
 
 $db = getDB();
 $albums = fetchAlbums($db);
+$error = message();
+
 ?>
 
 <html>
@@ -25,6 +27,9 @@ $albums = fetchAlbums($db);
                 <div>
                     <p>Add a New Album</p>
                 </div>
+                <div class="error">
+                    <?= $error ?>
+                </div>
                 <div>
                     <label for="name">Album name:</label>
                     <input type="text" id="name" name="name">
@@ -42,7 +47,7 @@ $albums = fetchAlbums($db);
                     <input type="text" id="length" name="length" title="mm:ss">
                 </div>
                 <div>
-                    <input type="submit" value="Submit">
+                    <input class="submit-button" type="submit" value="Submit">
                 </div>
             </form>
         </section>
