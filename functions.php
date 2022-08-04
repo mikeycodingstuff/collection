@@ -154,6 +154,7 @@ function deleteAlbum(string $albumId, PDO $db)
     $query->bindParam(':id', $albumId);
     return $query->execute();
 }
+
 /**
  * function that takes get info and returns a relevant error message
  *

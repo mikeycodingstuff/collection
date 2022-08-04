@@ -18,7 +18,7 @@ if (checkFormIsset($_POST)){
             if ($result) {
                 header('Location: index.php');
             } else {
-                header('Location: index.php?error= Unexpected error');  
+                header('Location: index.php?error= Unexpected error');
             }
         } else {
             header('Location: index.php?error= Please use valid inputs');
@@ -28,8 +28,6 @@ if (checkFormIsset($_POST)){
 } else {
     header('Location: index.php?error= Please fill in all sections');
 }
-
-
 
 ?>
 
