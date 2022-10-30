@@ -1,1 +1,1 @@
-# collection
+# Album Collection App
