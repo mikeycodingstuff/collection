@@ -40,17 +40,16 @@ LOCK TABLES `albums` WRITE;
 
 INSERT INTO `albums` (`id`, `name`, `artist`, `tracks`, `length`, `deleted`)
 VALUES
-	(1,'My Beautiful Dark Twisted Fantasy','Kanye West',13,'68:39',0),
-	(2,'American Football','American Football',9,'40:52',0),
-	(3,'Good Kid, M.A.A.D City','Kendrick Lamar',12,'68:23',0),
-	(4,'Madvillainy','Madvillain',22,'46:08',0),
-	(5,'Ys','Joanna Newsom',5,'55:38',0),
-	(6,'The Money Store','Death Grips',13,'41:23',0),
-	(7,'OK Computer','Radiohead',12,'53:21',0),
-	(8,'Helplessness Blues','Fleet Foxes',12,'49:56',0),
-	(9,'Floral Shoppe','Macintosh Plus',11,'47:47',0),
-	(10,'Another One','Mac DeMarco',8,'23:46',0),
-	(11,'Lift Your Skinny Fists Like Antennas to Heaven','Godspeed You! Black Emperor',4,'87:21',0);
+	(1,'American Football','American Football',9,'40:52',0),
+	(2,'Good Kid, M.A.A.D City','Kendrick Lamar',12,'68:23',0),
+	(3,'Madvillainy','Madvillain',22,'46:08',0),
+	(4,'Ys','Joanna Newsom',5,'55:38',0),
+	(5,'The Money Store','Death Grips',13,'41:23',0),
+	(6,'OK Computer','Radiohead',12,'53:21',0),
+	(7,'Helplessness Blues','Fleet Foxes',12,'49:56',0),
+	(8,'Floral Shoppe','Macintosh Plus',11,'47:47',0),
+	(9,'Another One','Mac DeMarco',8,'23:46',0),
+	(10,'Lift Your Skinny Fists Like Antennas to Heaven','Godspeed You! Black Emperor',4,'87:21',0);
 
 /*!40000 ALTER TABLE `albums` ENABLE KEYS */;
 UNLOCK TABLES;
